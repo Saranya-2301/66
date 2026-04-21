@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Report — C — samples/c/hello.c</title>
+  <style>
+    body { font-family: 'Segoe UI', monospace; background: #1e1e2e; color: #cdd6f4;
+           margin: 0; padding: 20px; }
+    h1   { color: #89b4fa; border-bottom: 2px solid #313244; padding-bottom: 10px; }
+    .meta  { color: #a6adc8; font-size: 0.9em; margin-bottom: 20px; }
+    .clean { background: #a6e3a1; color: #1e1e2e; padding: 15px 20px;
+             border-radius: 8px; font-weight: bold; font-size: 1.1em; }
+    .error-card { background: #313244; border-left: 4px solid #f38ba8;
+                  border-radius: 6px; margin: 15px 0; padding: 15px 20px; }
+    .error-card.SYNTAX  { border-left-color: #fab387; }
+    .error-card.LEXICAL { border-left-color: #f38ba8; }
+    .error-header { font-weight: bold; font-size: 1.05em; color: #f38ba8; }
+    .error-card.SYNTAX .error-header { color: #fab387; }
+    .src-line { background: #11111b; color: #a6e3a1; font-family: monospace;
+                padding: 8px 12px; border-radius: 4px; margin: 8px 0;
+                white-space: pre; overflow-x: auto; }
+    .pointer  { color: #f38ba8; font-family: monospace; letter-spacing: 0; }
+    .label    { display: inline-block; background: #45475a; color: #cba6f7;
+                padding: 2px 8px; border-radius: 4px; font-size: 0.85em; }
+    .suggestion { background: #1e1e2e; border: 1px solid #a6e3a1; color: #a6e3a1;
+                  padding: 8px 12px; border-radius: 4px; margin-top: 8px; }
+    .conf-bar { display: inline-block; background: #11111b; border-radius: 4px;
+                overflow: hidden; width: 100px; height: 10px; vertical-align: middle; }
+    .conf-fill { height: 100%; background: #a6e3a1; }
+    table  { border-collapse: collapse; width: 100%; }
+    td, th { padding: 6px 12px; text-align: left; }
+    th     { background: #45475a; color: #89b4fa; }
+    tr:nth-child(even) { background: #181825; }
+    </style>
+</head>
+<body>
+  <h1>🔍 Compiler Front-End — Error Report</h1>
+  <div class="meta">
+    <b>Language:</b> C &nbsp;|&nbsp;
+    <b>File:</b> samples/c/hello.c &nbsp;|&nbsp;
+    <b>Generated:</b> 2026-03-16 12:40:01 &nbsp;|&nbsp;
+    <b>Total Errors:</b> 2
+  </div>
+  
+<div class="error-card SYNTAX">
+  <div class="error-header">[1] ↔ SYNTAX ERROR — Line 5, Col 4</div>
+  <table style="margin: 10px 0">
+    <tr><td><b>Category</b></td><td>MISMATCHED_TOKEN</td></tr>
+    <tr><td><b>Offending Token</b></td><td><code>int</code></td></tr>
+    <tr><td><b>Message</b></td><td>mismatched input &#x27;int&#x27; expecting {&#x27;;&#x27;, &#x27;,&#x27;}</td></tr>
+    <tr><td><b>Predicted Label</b></td>
+        <td><span class="label">ADD_SEMICOLON</span></td></tr>
+    <tr><td><b>Confidence</b></td>
+        <td>
+          <div class="conf-bar">
+            <div class="conf-fill" style="width:60%"></div>
+          </div>
+          &nbsp;60%
+        </td></tr>
+  </table>
+  
+            <div class="src-line">    int y=20</div>
+            <div class="pointer">&nbsp;&nbsp;&nbsp;&nbsp;^</div>
+  <div class="suggestion">💡 Add a semicolon &#x27;;&#x27; at the end of the statement.</div>
+</div>
+
+<div class="error-card SYNTAX">
+  <div class="error-header">[2] ↔ SYNTAX ERROR — Line 6, Col 4</div>
+  <table style="margin: 10px 0">
+    <tr><td><b>Category</b></td><td>MISMATCHED_TOKEN</td></tr>
+    <tr><td><b>Offending Token</b></td><td><code>printf</code></td></tr>
+    <tr><td><b>Message</b></td><td>mismatched input &#x27;printf&#x27; expecting {&#x27;;&#x27;, &#x27;,&#x27;}</td></tr>
+    <tr><td><b>Predicted Label</b></td>
+        <td><span class="label">ADD_SEMICOLON</span></td></tr>
+    <tr><td><b>Confidence</b></td>
+        <td>
+          <div class="conf-bar">
+            <div class="conf-fill" style="width:60%"></div>
+          </div>
+          &nbsp;60%
+        </td></tr>
+  </table>
+  
+            <div class="src-line">    printf(&quot;%d\n&quot;, x);</div>
+            <div class="pointer">&nbsp;&nbsp;&nbsp;&nbsp;^</div>
+  <div class="suggestion">💡 Add a semicolon &#x27;;&#x27; at the end of the statement.</div>
+</div>
+
+<h2>Summary</h2>
+<table>
+  <thead>
+    <tr><th>Line</th><th>Type</th><th>Category</th>
+        <th>Suggestion</th><th>Confidence</th></tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>5</td>
+  <td>SYNTAX</td>
+  <td>MISMATCHED_TOKEN</td>
+  <td><span class="label">ADD_SEMICOLON</span></td>
+  <td>60%</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>SYNTAX</td>
+  <td>MISMATCHED_TOKEN</td>
+  <td><span class="label">ADD_SEMICOLON</span></td>
+  <td>60%</td>
+</tr></tbody>
+</table>
+</body>
+</html>
